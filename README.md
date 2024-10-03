@@ -1,19 +1,19 @@
 # Emacs-Kick(starter) for Vim/Neovim Users
 
-Welcome to **Emacs-Kick**, a feature-rich Emacs configuration designed
-for users familiar with **Vim**, **Neovim**, and **Vi**. With this
+Welcome to `Emacs-Kick`, a feature-rich Emacs configuration designed
+for users familiar with `Vim`, `Neovim`, and `Vi`. With this
 setup, you don't need to leave behind your favorite terminal or tools
-like **yazi**, **starship**, **lazygit**, and **lazydocker** just to
+like `yazi`, `starship`, `lazygit`, and `lazydocker` just to
 give Emacs a try.
 
-Use Emacs the same way you'd use **Neovim**, seamlessly integrating it
-into your workflow inside terminal multiplexers like **tmux** or
-**Zellij**, while also enjoying modern features such as **treesitter**
-and **LSP**—no hassle.
+Use Emacs the same way you'd use `Neovim`, seamlessly integrating it
+into your workflow inside terminal multiplexers like `tmux` or
+`Zellij`, while also enjoying modern features such as `treesitter`
+and `LSP`—no hassle.
 
 TODO: [Insert nice screenshot here]
 
-**Emacs-Kick** is not a distribution, but a starting point for your
+`Emacs-Kick` is not a distribution, but a starting point for your
 own configuration. It’s designed to be accessible to Vim/Neovim users
 without needing to adopt all of Emacs' ecosystem. You can still enjoy
 the power of Emacs without having to learn every Emacs-specific
