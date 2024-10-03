@@ -11,7 +11,7 @@ into your workflow inside terminal multiplexers like `tmux` or
 `Zellij`, while also enjoying modern features such as `treesitter`
 and `LSP`—no hassle.
 
-TODO: [Insert nice screenshot here]
+![Demo](doc/demo01.png)
 
 `Emacs-Kick` is not a distribution, but a starting point for your
 own configuration. It’s designed to be accessible to Vim/Neovim users
@@ -96,8 +96,8 @@ emacs
 ```
 
 **Usage Tips**:
-- **Leader Key**: The leader key is set to `SPC` (spacebar), similar
-  to Vim.
+- **Leader Key**: The leader key is set to `SPC` (spacebar),
+  `which-key` is there to help you discover keybindings.
 - **Help Commands**:
   - `SPC h i` opens the Emacs info documentation (`M-x info`).
   - `SPC h v` allows you to explore available variables.
