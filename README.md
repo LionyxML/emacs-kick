@@ -1,112 +1,110 @@
-* Emacs-Kick(starter) for Vim/Neovim Users
+# Emacs-Kick(starter) for Vim/Neovim Users
 
-Welcome to *Emacs-Kick*, a feature-rich Emacs configuration designed
-for users familiar with *Vim* *Neovim*, and *Vi*. With this
+Welcome to **Emacs-Kick**, a feature-rich Emacs configuration designed
+for users familiar with **Vim**, **Neovim**, and **Vi**. With this
 setup, you don't need to leave behind your favorite terminal or tools
-like *yazi*, *starship*, *lazygit*, and *lazydocker* just to give
-Emacs a try.
+like **yazi**, **starship**, **lazygit**, and **lazydocker** just to
+give Emacs a try.
 
-Use Emacs the same way you'd use *Neovim*, seamlessly integrating it
-into your workflow inside terminal multiplexers like *tmux* or
-*Zellij*, while also enjoying modern features such as *treesitter*
-and *LSP*—no hassle.
+Use Emacs the same way you'd use **Neovim**, seamlessly integrating it
+into your workflow inside terminal multiplexers like **tmux** or
+**Zellij**, while also enjoying modern features such as **treesitter**
+and **LSP**—no hassle.
 
 TODO: [Insert nice screenshot here]
 
-*Emacs-Kick* is not a distribution, but a starting point for your
+**Emacs-Kick** is not a distribution, but a starting point for your
 own configuration. It’s designed to be accessible to Vim/Neovim users
 without needing to adopt all of Emacs' ecosystem. You can still enjoy
 the power of Emacs without having to learn every Emacs-specific
 workflow.
 
-*Minimum Requirements*:
-- Emacs version *29+*
+**Minimum Requirements**:
+- Emacs version **29+**
   - You can verify your version by running:
-  
-  #+BEGIN_SRC bash
-  emacs --version
-  #+END_SRC
 
-*Installation Instructions*:
+```bash
+emacs --version
+```
 
-1. *Clone the repository*:
+**Installation Instructions**:
 
-   *Note*: If you already have an existing Emacs configuration in
+1. **Clone the repository**:
+
+   **Note**: If you already have an existing Emacs configuration in
    `~/.emacs.d`, please back it up before proceeding. You can do this
    by renaming the directory:
 
-   #+BEGIN_SRC bash
-   mv ~/.emacs.d ~/.emacs.d.backup
-   #+END_SRC
+```bash
+mv ~/.emacs.d ~/.emacs.d.backup
+```
 
    After backing up, clone the repository:
 
-   #+BEGIN_SRC bash
-   git clone https://github.com/LionyxML/emacs-kick.git ~/.emacs.d
-   #+END_SRC
+```bash
+git clone https://github.com/LionyxML/emacs-kick.git ~/.emacs.d
+```
 
-
-2. *Run the setup*:
+2. **Run the setup**:
 
    After cloning, install the configuration by running:
 
-   #+BEGIN_SRC bash
-   emacs -nw --eval="(ek/first-install)"
-   #+END_SRC
+```bash
+emacs -nw --eval="(ek/first-install)"
+```
 
    Alternatively, you can run the provided script `ek-reinstall.sh`
    from inside `~/.emacs.d/`, which will achieve the same result:
 
-   #+BEGIN_SRC bash
-   cd ~/.emacs.d/ && ./ek-reinstall.sh
-   #+END_SRC
+```bash
+cd ~/.emacs.d/ && ./ek-reinstall.sh
+```
 
    Both methods will install all necessary packages and apply the
    configuration.
 
+3. **Set terminal mode by default**:
 
-3. *Set terminal mode by default*:
+   **Note on Emacs modes**: Emacs automatically adapts to either
+   graphical or terminal mode depending on the environment. But if
+   you're in a graphical session and prefer terminal mode, just use:
 
-   *Note on Emacs modes*: Emacs automatically adapts to either
-   graphical or terminal mode depending on the environment. But if you're
-   in a graphical session and prefer terminal mode, just use:
-
-   #+BEGIN_SRC bash
-   emacs -nw
-   #+END_SRC
+```bash
+emacs -nw
+```
 
    To ensure Emacs always opens in terminal mode, add the following to
    your `.bashrc` or `.zshrc`:
 
-   #+BEGIN_SRC bash
-   alias emacs='emacs -nw'
-   #+END_SRC
+```bash
+alias emacs='emacs -nw'
+```
 
    Then, reload your shell configuration with:
 
-   #+BEGIN_SRC bash
-   source ~/.bashrc  # for bash
-   source ~/.zshrc   # for zsh
-   #+END_SRC
+```bash
+source ~/.bashrc  # for bash
+source ~/.zshrc   # for zsh
+```
 
-4. *Start Emacs*:
+4. **Start Emacs**:
 
    Once set up, start Emacs with:
 
-   #+BEGIN_SRC bash
-   emacs
-   #+END_SRC
+```bash
+emacs
+```
 
-*Usage Tips*:
-- *Leader Key*: The leader key is set to `SPC` (spacebar), similar
+**Usage Tips**:
+- **Leader Key**: The leader key is set to `SPC` (spacebar), similar
   to Vim.
-- *Help Commands*:
+- **Help Commands**:
   - `SPC h i` opens the Emacs info documentation (`M-x info`).
   - `SPC h v` allows you to explore available variables.
   - `SPC h f` lets you explore functions.
   - `SPC h k` displays keybindings.
 
-*Troubleshooting*:
+**Troubleshooting**:
 - If you encounter any issues during installation, check the
   `*Messages*` buffer for more information. You can switch between
   buffers with `SPC SPC`, and navigate options using `C-p` and `C-n`.
@@ -119,8 +117,7 @@ explore and customize it further as you go.
 
 Enjoy your Emacs experience!
 
-
-* Contributing
+# Contributing
 
 This package is intentionally designed with a specific vision in mind,
 reflecting my own opinions and preferences. While contributions are
@@ -134,4 +131,3 @@ feedback to improve the project.
 
 To contribute, feel free to open an issue or submit a pull
 request. Let's make this configuration even better together!
-
