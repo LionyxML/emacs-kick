@@ -1,19 +1,9 @@
 ;;; init.el --- Emacs-Kick --- A feature rich Emacs config for (neo)vi(m)mers -*- lexical-binding: t; -*-
 ;; Author: Rahul Martim Juliato
-;; Version: 0.1.0-rc0
+;; Version: 0.1.0-rc1
 ;; License: GPL-2.0-or-later
 
 ;;; Commentary:
-;; - [X] Ask for permission on official kickstarter.nvim
-;; - [X] Intro doc
-;; - [X] Assumption that user already knows vim
-;; - [X] Document init.el
-;; - [ ] Create README.org
-;; - [ ] Nice gif/pic
-;; - [X] Create optional nerd fonts option
-;; - [X] Decide either nerdtree or treemacs or nothing (just dired)...
-
-
 ;; =====================================================================
 ;; ==================== READ THIS BEFORE CONTINUING ====================
 ;; =====================================================================
@@ -211,8 +201,17 @@
   (prog-mode . display-line-numbers-mode)         ;; Enable line numbers in programming modes.
 
   :config
+  ;; By default emacs gives you access to a lot of *special* buffers, while navigating with [b and ]b,
+  ;; this might be confusing for newcomers. This settings make sure ]b and [b will always load a
+  ;; file buffer. To see all buffers use <leader> SPC, <leader> b l, or <leader> b i.
+  (defun skip-these-buffers (_window buffer _bury-or-kill)
+	"Function for `switch-to-prev-buffer-skip'."
+	(string-match "\\*[^*]+\\*" (buffer-name buffer)))
+  (setq switch-to-prev-buffer-skip 'skip-these-buffers)
+
+
   ;; Configure font settings based on the operating system.
-  ;; Ok, this kickstart is meant to be used on the terminal, not on graphical.
+  ;; Ok, this kickstart is meant to be used on the terminal, not on GUI.
   ;; But without this, I fear you could start Graphical Emacs and be sad :(
   (set-face-attribute 'default nil :family "JetBrainsMono Nerd Front"  :height 100)
   (when (eq system-type 'darwin)       ;; Check if the system is macOS.
@@ -232,6 +231,7 @@
   (when scroll-bar-mode
     (scroll-bar-mode -1))      ;; Disable the scroll bar if it is active.
 
+  (global-hl-line-mode 1)      ;; Enable highlight of the current line 
   (global-auto-revert-mode 1)  ;; Enable global auto-revert mode to keep buffers up to date with their corresponding files.
   (indent-tabs-mode -1)        ;; Disable the use of tabs for indentation (use spaces instead).
   (recentf-mode 1)             ;; Enable tracking of recently opened files.
@@ -261,7 +261,7 @@
                   (number-to-string (length package-activated-list))))))))
   
 
-;; WINDOW
+;;; WINDOW
 ;; This section configures window management in Emacs, enhancing the way buffers 
 ;; are displayed for a more efficient workflow. The `window` use-package helps 
 ;; streamline how various buffers are shown, especially those related to help, 
@@ -589,6 +589,8 @@
   :ensure t
   :custom
   (company-tooltip-align-annotations t)      ;; Align annotations with completions.
+  (company-minimum-prefix-length 1)          ;; Trigger completion after typing 1 character
+  (company-idle-delay 0.2)                   ;; Delay before showing completion (adjust as needed)
   :config
   (define-key company-active-map (kbd "C-y") (lambda () (interactive) (company-show-doc-buffer t)))
   (define-key company-active-map [tab] 'company-complete-selection)
@@ -972,7 +974,7 @@
   (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/.cache/undo"))))
 
 
-;; RAINBOW DELIMITERS
+;;; RAINBOW DELIMITERS
 ;; The `rainbow-delimiters` package provides colorful parentheses, brackets, and braces
 ;; to enhance readability in programming modes. Each level of nested delimiter is assigned
 ;; a different color, making it easier to match pairs visually.
@@ -983,7 +985,30 @@
   (prog-mode . rainbow-delimiters-mode))
 
 
-;; DOOM MODELINE
+;;; PULSAR
+(use-package pulsar
+  :defer t
+  :ensure t
+  :hook
+  (after-init . pulsar-global-mode)
+  :config
+  (setq pulsar-pulse t)
+  (setq pulsar-delay 0.025)
+  (setq pulsar-iterations 10)
+  (setq pulsar-face 'evil-ex-lazy-highlight)
+
+  (add-to-list 'pulsar-pulse-functions 'evil-scroll-down)
+  (add-to-list 'pulsar-pulse-functions 'flymake-goto-next-error)
+  (add-to-list 'pulsar-pulse-functions 'flymake-goto-prev-error)
+  (add-to-list 'pulsar-pulse-functions 'evil-yank)
+  (add-to-list 'pulsar-pulse-functions 'evil-yank-line)
+  (add-to-list 'pulsar-pulse-functions 'evil-delete)
+  (add-to-list 'pulsar-pulse-functions 'evil-delete-line)
+  (add-to-list 'pulsar-pulse-functions 'evil-jump-item)
+  (add-to-list 'pulsar-pulse-functions 'diff-hl-next-hunk)
+  (add-to-list 'pulsar-pulse-functions 'diff-hl-previous-hunk))
+
+;;; DOOM MODELINE
 ;; The `doom-modeline` package provides a sleek, modern mode-line that is visually appealing
 ;; and functional. It integrates well with various Emacs features, enhancing the overall user
 ;; experience by displaying relevant information in a compact format.
@@ -1003,7 +1028,7 @@
   (after-init . doom-modeline-mode))
 
 
-;; NEOTREE
+;;; NEOTREE
 ;; The `neotree` package provides a file tree explorer for Emacs, allowing easy navigation
 ;; through directories and files. It presents a visual representation of the file system
 ;; and integrates with version control to show file states.
@@ -1020,7 +1045,7 @@
     (setq neo-theme 'nerd)))               ;; Otherwise, fall back to the 'nerd' theme.
 
 
-;; NERD ICONS
+;;; NERD ICONS
 ;; The `nerd-icons` package provides a set of icons for use in Emacs. These icons can 
 ;; enhance the visual appearance of various modes and packages, making it easier to 
 ;; distinguish between different file types and functionalities.
@@ -1030,7 +1055,7 @@
   :defer t)                               ;; Load the package only when needed to improve startup time.
 
 
-;; NERD ICONS Dired
+;;; NERD ICONS Dired
 ;; The `nerd-icons-dired` package integrates nerd icons into the Dired mode, 
 ;; providing visual icons for files and directories. This enhances the Dired 
 ;; interface by making it easier to identify file types at a glance.
@@ -1042,7 +1067,7 @@
   (dired-mode . nerd-icons-dired-mode))
 
 
-;; NERD ICONS COMPLETION
+;;; NERD ICONS COMPLETION
 ;; The `nerd-icons-completion` package enhances the completion interfaces in 
 ;; Emacs by integrating nerd icons with completion frameworks such as 
 ;; `marginalia`. This provides visual cues for the completion candidates, 
@@ -1056,7 +1081,7 @@
   (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup)) ;; Setup icons in the marginalia mode for enhanced completion display.
 
 
-;; CATPPUCCIN THEME
+;;; CATPPUCCIN THEME
 ;; The `catppuccin-theme` package provides a visually pleasing color theme 
 ;; for Emacs that is inspired by the popular Catppuccin color palette. 
 ;; This theme aims to create a comfortable and aesthetic coding environment 
@@ -1080,7 +1105,7 @@
   (load-theme 'catppuccin :no-confirm))
 
 
-;; UTILITARY FUNCTION TO INSTALL EMACS-KICK
+;;; UTILITARY FUNCTION TO INSTALL EMACS-KICK
 (defun ek/first-install ()
   "Install tree-sitter grammars and compile packages on first run..."
   (interactive)                                      ;; Allow this function to be called interactively.
