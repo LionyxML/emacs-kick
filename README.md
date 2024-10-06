@@ -39,6 +39,12 @@ emacs --version
 mv ~/.emacs.d ~/.emacs.d.backup
 ```
 
+   If you have any additional configurations from other Emacs
+   installations, please clean them up. This includes directories and
+   files such as `~/.emacs.d`, `~/.emacs`, `~/.emacs~`,
+   `~/.config/emacs`, `~/.config/doom`, `~/.config/cache/emacs` and
+   any other related files.
+
    After backing up, clone the repository:
 
 ```bash
