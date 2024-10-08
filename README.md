@@ -74,6 +74,14 @@ cd ~/.emacs.d/ && ./ek-reinstall.sh
 Both methods will install all necessary packages and apply the
 configuration.
 
+
+**NOTE**: You will be prompted to install Tree-sitter grammars and
+download some fonts (this configuration uses Nerd Fonts by
+default). While you can choose to do this later, it is highly
+recommended to complete these steps during the installation process
+for the best experience!
+
+
 3. **Set terminal mode by default**:
 
 **Note on Emacs TUI/GUI**: Emacs automatically adapts to either
