@@ -34,23 +34,23 @@ emacs --version
 
 1. **Clone the repository**:
 
-   **Note**: If you already have an existing Emacs configuration in
-   `~/.emacs.d`, please back it up before proceeding. You can do this
-   by renaming the directory:
+**Note**: If you already have an existing Emacs configuration in
+`~/.emacs.d`, please back it up before proceeding. You can do this
+by renaming the directory:
 
 
 ```bash
 mv ~/.emacs.d ~/.emacs.d.backup
 ```
 
-   If you have any additional configurations from other Emacs
-   installations, please clean them up. This includes directories and
-   files such as `~/.emacs.d`, `~/.emacs`, `~/.emacs~`,
-   `~/.config/emacs`, `~/.config/doom`, `~/.config/cache/emacs` and
-   any other related files.
+If you have any additional configurations from other Emacs
+installations, please clean them up. This includes directories and
+files such as `~/.emacs.d`, `~/.emacs`, `~/.emacs~`,
+`~/.config/emacs`, `~/.config/doom`, `~/.config/cache/emacs` and
+any other related files.
 
 
-   After deleting/backing up, clone the repository:
+After deleting/backing up, clone the repository:
 
 ```bash
 git clone https://github.com/LionyxML/emacs-kick.git ~/.emacs.d
@@ -64,34 +64,34 @@ git clone https://github.com/LionyxML/emacs-kick.git ~/.emacs.d
 emacs -nw --eval="(ek/first-install)"
 ```
 
-   Alternatively, you can run the provided script `ek-reinstall.sh`
-   from inside `~/.emacs.d/`, which will achieve the same result:
+Alternatively, you can run the provided script `ek-reinstall.sh`
+from inside `~/.emacs.d/`, which will achieve the same result:
 
 ```bash
 cd ~/.emacs.d/ && ./ek-reinstall.sh
 ```
 
-   Both methods will install all necessary packages and apply the
-   configuration.
+Both methods will install all necessary packages and apply the
+configuration.
 
 3. **Set terminal mode by default**:
 
-   **Note on Emacs modes**: Emacs automatically adapts to either
-   graphical or terminal mode depending on the environment. But if
-   you're in a graphical session and prefer terminal mode, just use:
+**Note on Emacs TUI/GUI**: Emacs automatically adapts to either
+graphical or terminal mode depending on the environment. But if
+you're in a graphical session and prefer terminal mode, just use:
 
 ```bash
 emacs -nw
 ```
 
-   To ensure Emacs always opens in terminal mode, add the following to
-   your `.bashrc` or `.zshrc`:
+To ensure Emacs always opens in terminal mode, add the following to
+your `.bashrc` or `.zshrc`:
 
 ```bash
 alias emacs='emacs -nw'
 ```
 
-   Then, reload your shell configuration with:
+Then, reload your shell configuration with:
 
 ```bash
 source ~/.bashrc  # for bash
@@ -100,7 +100,7 @@ source ~/.zshrc   # for zsh
 
 4. **Start Emacs**:
 
-   Once set up, start Emacs with:
+Once set up, start Emacs with:
 
 ```bash
 emacs
