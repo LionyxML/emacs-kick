@@ -1,6 +1,6 @@
 ;;; init.el --- Emacs-Kick --- A feature rich Emacs config for (neo)vi(m)mers -*- lexical-binding: t; -*-
 ;; Author: Rahul Martim Juliato
-;; Version: 0.1.0-rc2
+;; Version: 0.1.0-rc3
 ;; Package-Requires: ((emacs "30.0"))
 ;; License: GPL-2.0-or-later
 
@@ -447,7 +447,11 @@
 (use-package flymake
   :ensure nil          ;; This is built-in, no need to fetch it.
   :defer t
-  :hook (prog-mode . flymake-mode))
+  :hook (prog-mode . flymake-mode)
+  :custom
+  (flymake-margin-indicators-string
+   '((error "!»" compilation-error) (warning "»" compilation-warning)
+	 (note "»" compilation-info))))
 
 
 ;;; ORG-MODE
@@ -836,9 +840,11 @@
   (setq evil-want-integration t)      ;; Integrate `evil' with other Emacs features (optional as it's true by default).
   (setq evil-want-keybinding nil)     ;; Disable default keybinding to set custom ones.
   :config
+  (evil-set-undo-system 'undo-tree)   ;; Uses the undo-tree package as the default undo system
+
   ;; Set the leader key to space for easier access to custom commands. (setq evil-want-leader t)
   (setq evil-leader/in-all-states t)  ;; Make the leader key available in all states.
-  (setq evil-undo-system 'undo-tree)  ;; Use `undo-tree' for better visual undo history.
+  (setq evil-want-fine-undo t)        ;; Evil uses finer grain undoing steps
 
   ;; Define the leader key as Space
   (evil-set-leader 'normal (kbd "SPC")) 
@@ -932,7 +938,7 @@
   (evil-define-key 'normal lsp-mode-map
     ;; (kbd "gd") 'lsp-find-definition                ;; Emacs already provides a better gd
     ;; (kbd "gr") 'lsp-find-references                ;; Emacs already provides a better gr
-    (kbd "<leader> c a") 'lsp-describe-thing-at-point ;; Show hover documentation
+    (kbd "<leader> c a") 'lsp-execute-code-action     ;; Execute code actions
     (kbd "<leader> r n") 'lsp-rename                  ;; Rename symbol
     (kbd "gI") 'lsp-find-implementation               ;; Find implementation
     (kbd "<leader> l f") 'lsp-format-buffer)          ;; Format buffer via lsp
@@ -947,7 +953,11 @@
 		(switch-to-buffer-other-window help-buffer))))
   ;; Open hover documentation
   (evil-define-key 'normal 'global (kbd "K") 'ek/lsp-describe-and-jump)
-
+  ;; Yeah, on terminals, Emacs doesn't support (YET), the use of floating windows,
+  ;; thus, this will open a small buffer bellow your window.
+  ;; This floating frames are called "child frames" and some recent effort is being put
+  ;; into having a translation of those marvelous GUI stuff to terminal. Let's hope
+  ;; we add this to Emacs Kick soom :)
 
   ;; Commenting functionality for single and multiple lines
   (evil-define-key 'normal 'global (kbd "gcc")
@@ -1017,6 +1027,14 @@
   :ensure t
   :hook
   (prog-mode . rainbow-delimiters-mode))
+
+
+;;; DOTENV
+;; A simple major mode to provide .env files with color highlighting
+(use-package dotenv-mode
+  :defer t
+  :ensure t
+  :config)
 
 
 ;;; PULSAR
@@ -1131,15 +1149,15 @@
   :config
   (custom-set-faces
    ;; Set the color for changes in the diff highlighting to blue.
-   `(diff-hl-change ((t (:background nil :foreground ,(catppuccin-get-color 'blue))))))
+   `(diff-hl-change ((t (:background unspecified :foreground ,(catppuccin-get-color 'blue))))))
   
   (custom-set-faces
    ;; Set the color for deletions in the diff highlighting to red.
-   `(diff-hl-delete ((t (:background nil :foreground ,(catppuccin-get-color 'red))))))
+   `(diff-hl-delete ((t (:background unspecified :foreground ,(catppuccin-get-color 'red))))))
   
   (custom-set-faces
    ;; Set the color for insertions in the diff highlighting to green.
-   `(diff-hl-insert ((t (:background nil :foreground ,(catppuccin-get-color 'green))))))
+   `(diff-hl-insert ((t (:background unspecified :foreground ,(catppuccin-get-color 'green))))))
   
   ;; Load the Catppuccin theme without prompting for confirmation.
   (load-theme 'catppuccin :no-confirm))

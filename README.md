@@ -6,6 +6,7 @@ setup, you don't need to leave behind your favorite terminal or tools
 like `yazi`, `starship`, `lazygit`, and `lazydocker` just to
 give Emacs a try.
 
+
 Use Emacs the same way you'd use `Neovim`, seamlessly integrating it
 into your workflow inside terminal multiplexers like `tmux` or
 `Zellij`, while also enjoying modern features such as `treesitter`
@@ -13,27 +14,30 @@ and `LSP`—no hassle.
 
 ![Demo](doc/demo01.png)
 
+
 `Emacs-Kick` is not a distribution, but a starting point for your
 own configuration. It’s designed to be accessible to Vim/Neovim users
 without needing to adopt all of Emacs' ecosystem. You can still enjoy
 the power of Emacs without having to learn every Emacs-specific
 workflow.
 
+
 **Minimum Requirements**:
-- Emacs version **29+**
+- Emacs version **>=30**
   - You can verify your version by running:
 
 ```bash
 emacs --version
 ```
 
-**Installation Instructions**:
+## Installation Instructions
 
 1. **Clone the repository**:
 
    **Note**: If you already have an existing Emacs configuration in
    `~/.emacs.d`, please back it up before proceeding. You can do this
    by renaming the directory:
+
 
 ```bash
 mv ~/.emacs.d ~/.emacs.d.backup
@@ -45,7 +49,8 @@ mv ~/.emacs.d ~/.emacs.d.backup
    `~/.config/emacs`, `~/.config/doom`, `~/.config/cache/emacs` and
    any other related files.
 
-   After backing up, clone the repository:
+
+   After deleting/backing up, clone the repository:
 
 ```bash
 git clone https://github.com/LionyxML/emacs-kick.git ~/.emacs.d
@@ -115,25 +120,85 @@ emacs
   `*Messages*` buffer for more information. You can switch between
   buffers with `SPC SPC`, and navigate options using `C-p` and `C-n`.
 
----
 
-This configuration is tailored for Vim/Neovim users looking to explore
-Emacs while keeping their existing workflow intact. Feel free to
-explore and customize it further as you go.
+## Available Commands
 
-Enjoy your Emacs experience!
+| Keybinding          | Action                                    |
+|---------------------|-------------------------------------------|
+| `SPC`               | Leader key                                |
+| `C-d`               | Scroll down                               |
+| `C-u`               | Scroll up                                 |
+| `<leader> s f`      | Find file                                 |
+| `<leader> s g`      | Grep                                      |
+| `<leader> s G`      | Git grep                                  |
+| `<leader> s r`      | Ripgrep                                   |
+| `<leader> s h`      | Consult info                              |
+| `<leader> /`        | Consult line                              |
+| `<leader> x x`      | Consult Flymake                           |
+| `] d`               | Next Flymake error                        |
+| `[ d`               | Previous Flymake error                    |
+| `<leader> x d`      | Dired                                     |
+| `<leader> x j`      | Dired jump                                |
+| `<leader> x f`      | Find file                                 |
+| `] c`               | Next diff hunk                            |
+| `[ c`               | Previous diff hunk                        |
+| `<leader> e e`      | Toggle NeoTree                            |
+| `<leader> g g`      | Open Magit status                         |
+| `<leader> g l`      | Show current log                          |
+| `<leader> g d`      | Show diff for current file                |
+| `<leader> g D`      | Show diff for hunk                        |
+| `<leader> g b`      | Annotate buffer with version control info |
+| `] b`               | Switch to next buffer                     |
+| `[ b`               | Switch to previous buffer                 |
+| `<leader> b i`      | Consult buffer list                       |
+| `<leader> b b`      | Open Ibuffer                              |
+| `<leader> b d`      | Kill current buffer                       |
+| `<leader> b k`      | Kill current buffer                       |
+| `<leader> b x`      | Kill current buffer                       |
+| `<leader> b s`      | Save buffer                               |
+| `<leader> b l`      | Consult buffer                            |
+| `<leader>SPC`       | Consult buffer                            |
+| `<leader> p b`      | Consult project buffer                    |
+| `<leader> p p`      | Switch project                            |
+| `<leader> p f`      | Find file in project                      |
+| `<leader> p g`      | Find regexp in project                    |
+| `<leader> p k`      | Kill project buffers                      |
+| `<leader> p D`      | Dired for project                         |
+| `P`                 | Yank from kill ring                       |
+| `<leader> P`        | Yank from kill ring                       |
+| `<leader> .`        | Embark act                                |
+| `<leader> u`        | Undo tree visualize                       |
+| `<leader> h m`      | Describe current mode                     |
+| `<leader> h f`      | Describe function                         |
+| `<leader> h v`      | Describe variable                         |
+| `<leader> h k`      | Describe key                              |
+| `] t`               | Go to next tab                            |
+| `[ t`               | Go to previous tab                        |
+| `<leader> m p`      | Format with Prettier                      |
+| `<leader> c a`      | Execute code action                       |
+| `<leader> r n`      | Rename symbol                             |
+| `gI`                | Find implementation                       |
+| `<leader> l f`      | Format buffer via LSP                     |
+| `K`                 | Show hover documentation                  |
+| `gcc`               | Comment/uncomment current line            |
+| `gc`                | Comment/uncomment selected region         |
 
-# Contributing
+...and a lot more, discoverable with which-key :)
+
+
+## Contributing
 
 This package is intentionally designed with a specific vision in mind,
 reflecting my own opinions and preferences. While contributions are
 welcome, please understand that this configuration is quite
 opinionated.
 
+
 If you have suggestions or requests, they will be considered
 carefully, but I cannot make any promises regarding implementation or
 acceptance. Your input is valuable, and I appreciate any help or
 feedback to improve the project.
+
 
 To contribute, feel free to open an issue or submit a pull
 request. Let's make this configuration even better together!
