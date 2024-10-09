@@ -1,6 +1,6 @@
 ;;; init.el --- Emacs-Kick --- A feature rich Emacs config for (neo)vi(m)mers -*- lexical-binding: t; -*-
 ;; Author: Rahul Martim Juliato
-;; Version: 0.1.0-rc3
+;; Version: 0.1.0
 ;; Package-Requires: ((emacs "30.0"))
 ;; License: GPL-2.0-or-later
 

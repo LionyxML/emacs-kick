@@ -15,14 +15,30 @@ and `LSP`—no hassle.
 ![Demo](doc/demo01.png)
 
 
-`Emacs-Kick` is not a distribution, but a starting point for your
-own configuration. It’s designed to be accessible to Vim/Neovim users
-without needing to adopt all of Emacs' ecosystem. You can still enjoy
-the power of Emacs without having to learn every Emacs-specific
-workflow.
+**Emacs-Kick** isn’t a full-fledged distribution but rather a
+**starting point** for building your own Emacs configuration. It’s
+designed to be especially accessible for Vim/Neovim users, letting you
+explore the power of Emacs without committing to its entire ecosystem.
 
 
-**Minimum Requirements**:
+You can take advantage of Emacs’ features without needing to master
+every Emacs-specific workflow right away. And if you find yourself
+enjoying it, you can:
+
+- Run it in a GUI for a richer experience
+- Customize and expand your configuration as much as you want
+- Experiment with frameworks like Doom Emacs or Spacemacs
+- Tinker with vanilla Emacs to build a setup entirely your own
+OR...
+- Just keep using it on TUI, it is all up to you!
+
+
+With Emacs-Kick, the goal is to empower you to explore Emacs at your
+own pace. The sky's the limit! 🌟
+
+
+## Minimum Requirements
+
 - Emacs version **>=30**
   - You can verify your version by running:
 
