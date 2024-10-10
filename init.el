@@ -1,6 +1,6 @@
 ;;; init.el --- Emacs-Kick --- A feature rich Emacs config for (neo)vi(m)mers -*- lexical-binding: t; -*-
 ;; Author: Rahul Martim Juliato
-;; Version: 0.1.0
+;; Version: 0.1.1
 ;; Package-Requires: ((emacs "30.0"))
 ;; License: GPL-2.0-or-later
 
@@ -118,7 +118,9 @@
 ;; Emacs already comes with its on package manager.
 ;; Others are available, but let's stick with the defaults when it makes sense.
 ;;
-;; Requires the Emacs default package manager, so we can set it. Kind of an 'import'.
+;; Requires the default Emacs package manager, similar to an 'import' in other languages.
+;; In Emacs, a package is a collection of Elisp code that extends the editor's functionality,
+;; much like plugins do in Neovim.
 (require 'package)
 ;; Add MELPA (Milkypostman's Emacs Lisp Package Archive) to the list of package archives.
 ;; This allows you to install packages from this widely-used repository, similar to how
@@ -127,16 +129,6 @@
 ;; licensing criteria, MELPA offers a broader range of packages and is considered the
 ;; standard for Emacs users. You can also add more package archives later as needed.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-
-;; Initialize the package system. In Emacs, a package is a collection of Elisp code
-;; that extends the functionality of the editor, similar to plugins in Neovim. 
-;; By calling `package-initialize', we load the list of available packages from 
-;; the configured archives (like MELPA) and make them ready for installation and use. 
-;; This process is akin to using lazy.nvim or packer.nvim in Neovim, which manage 
-;; plugin installations and configurations. While there are third-party package managers 
-;; available for Emacs, such as straight.el and use-package, we are sticking with 
-;; the default package manager for simplicity in this configuration.
-(package-initialize)
 
 
 ;; Define a global customizable variable `ek-use-nerd-fonts' to control the use of 
@@ -648,6 +640,13 @@
 ;; LSPs together in a React project). For this reason, the more mature and capable 
 ;; `lsp-mode' is included as a third-party package, providing advanced IDE-like features 
 ;; and better support for multiple language servers and configurations.
+;;
+;; NOTE: To install or reinstall an LSP server, use `M-x install-server RET`.
+;;       As with other editors, LSP configurations can become complex. You may need to
+;;       install or reinstall the server for your project due to version management quirks
+;;       (e.g., asdf or nvm) or other issues.
+;;       Fortunately, `lsp-mode` has a great resource site:
+;;       https://emacs-lsp.github.io/lsp-mode/
 (use-package lsp-mode
   :ensure t
   :defer t
