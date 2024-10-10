@@ -933,8 +933,8 @@
 
   ;; LSP commands keybindings
   (evil-define-key 'normal lsp-mode-map
-    ;; (kbd "gd") 'lsp-find-definition                ;; Emacs already provides a better gd
-    ;; (kbd "gr") 'lsp-find-references                ;; Emacs already provides a better gr
+    ;; (kbd "gd") 'lsp-find-definition                ;; evil-collection already provides gd
+    (kbd "gr") 'lsp-find-references                   ;; Finds LSP references
     (kbd "<leader> c a") 'lsp-execute-code-action     ;; Execute code actions
     (kbd "<leader> r n") 'lsp-rename                  ;; Rename symbol
     (kbd "gI") 'lsp-find-implementation               ;; Find implementation
