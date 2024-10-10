@@ -1,7 +1,7 @@
 #!/bin/sh
 
 clear
-echo ">>> (re)Istalling Emacs Kick ..."
+echo ">>> (re)Installing Emacs Kick ..."
 sleep 2
 
 echo ">>> Deleting packages, grammars and native compilation cache ..."
