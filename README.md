@@ -206,6 +206,8 @@ emacs
 | `K`                 | Show hover documentation                  |
 | `gcc`               | Comment/uncomment current line            |
 | `gc`                | Comment/uncomment selected region         |
+| `gd`                | Goto definitions                          |
+| `gr`                | Goto references                           |
 
 ...and a lot more, discoverable with which-key :)
 
@@ -226,3 +228,9 @@ feedback to improve the project.
 
 To contribute, feel free to open an issue or submit a pull
 request. Let's make this configuration even better together!
+
+
+## About PRs
+
+Always welcome, not a promise to accept though (see above). Please
+direct your PRs to the `development` branch of this repository.
