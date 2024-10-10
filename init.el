@@ -838,6 +838,8 @@
   :init
   (setq evil-want-integration t)      ;; Integrate `evil' with other Emacs features (optional as it's true by default).
   (setq evil-want-keybinding nil)     ;; Disable default keybinding to set custom ones.
+  (setq evil-want-C-u-scroll t)       ;; Makes C-u scroll
+  (setq evil-want-C-u-delete t)       ;; Makes C-u delete on insert mode
   :config
   (evil-set-undo-system 'undo-tree)   ;; Uses the undo-tree package as the default undo system
 
@@ -849,10 +851,6 @@
   (evil-set-leader 'normal (kbd "SPC")) 
   (evil-set-leader 'visual (kbd "SPC")) 
 
-  ;; Scrolls with C-d, C-u 
-  (evil-define-key 'normal 'global (kbd "C-d") 'scroll-up)   ;; Scroll down in normal mode.
-  (evil-define-key 'normal 'global (kbd "C-u") 'scroll-down) ;; Scroll up in normal mode.
-  
   ;; Keybindings for searching and finding files.
   (evil-define-key 'normal 'global (kbd "<leader> s f") 'consult-find)
   (evil-define-key 'normal 'global (kbd "<leader> s g") 'consult-grep)
