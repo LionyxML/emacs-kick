@@ -981,14 +981,13 @@
 ;; provides a better modal experience by remapping keybindings and
 ;; commands to fit the `evil' style.
 (use-package evil-collection
-  :after evil
   :defer t
   :ensure t
+  :custom
+  (evil-collection-want-find-usages-bindings t)
   ;; Hook to initialize `evil-collection' when `evil-mode' is activated.
   :hook
-  (evil-mode . evil-collection-init)
-  :config
-  (evil-collection-init))
+- (evil-mode . evil-collection-init))
 
 
 ;; UNDO TREE
