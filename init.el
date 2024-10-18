@@ -1,6 +1,6 @@
 ;;; init.el --- Emacs-Kick --- A feature rich Emacs config for (neo)vi(m)mers -*- lexical-binding: t; -*-
 ;; Author: Rahul Martim Juliato
-;; Version: 0.1.1
+;; Version: 0.1.2
 ;; Package-Requires: ((emacs "30.0"))
 ;; License: GPL-2.0-or-later
 
@@ -218,9 +218,13 @@
   (setq custom-file (locate-user-emacs-file "custom-vars.el")) ;; Specify the custom file path.
   (load custom-file 'noerror 'nomessage)                       ;; Load the custom file quietly, ignoring errors.
 
+  ;; Makes Emacs vertical divisor the symbol │ instead of |.
+  (set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?│))
+
   :init                        ;; Initialization settings that apply before the package is loaded.
   (tool-bar-mode -1)           ;; Disable the tool bar for a cleaner interface.
   (menu-bar-mode -1)           ;; Disable the menu bar for a more streamlined look.
+
   (when scroll-bar-mode
     (scroll-bar-mode -1))      ;; Disable the scroll bar if it is active.
 
@@ -230,7 +234,7 @@
   (recentf-mode 1)             ;; Enable tracking of recently opened files.
   (savehist-mode 1)            ;; Enable saving of command history.
   (save-place-mode 1)          ;; Enable saving the place in files for easier return.
-  (winner-mode)                ;; Enable winner mode to easily undo window configuration changes.
+  (winner-mode 1)              ;; Enable winner mode to easily undo window configuration changes.
   (xterm-mouse-mode 1)         ;; Enable mouse support in terminal mode.
   (file-name-shadow-mode 1)    ;; Enable shadowing of filenames for clarity.
 
