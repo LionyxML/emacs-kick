@@ -1009,6 +1009,19 @@
   (global-evil-surround-mode 1))
 
 
+;; EVIL MATCHIT
+;; The `evil-matchit' package extends `evil-mode' by enabling
+;; text object matching for structures such as parentheses, HTML
+;; tags, and other paired delimiters. This makes it easier to
+;; navigate and manipulate code blocks.
+;; Just use % for jumping between matching structures to check it out.
+(use-package evil-matchit
+  :ensure t
+  :after evil-collection
+  :config
+  (global-evil-matchit-mode 1))
+
+
 ;; UNDO TREE
 ;; The `undo-tree' package provides an advanced and visual way to
 ;; manage undo history. It allows you to navigate and visualize your
