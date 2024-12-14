@@ -1,6 +1,6 @@
 ;;; init.el --- Emacs-Kick --- A feature rich Emacs config for (neo)vi(m)mers -*- lexical-binding: t; -*-
 ;; Author: Rahul Martim Juliato
-;; Version: 0.1.2
+;; Version: 0.1.3
 ;; Package-Requires: ((emacs "30.0"))
 ;; License: GPL-2.0-or-later
 
@@ -8,20 +8,23 @@
 ;; =====================================================================
 ;; ==================== READ THIS BEFORE CONTINUING ====================
 ;; =====================================================================
-;; ========                                    .-----.          ========
-;; ========         .----------------------.   | === |          ========
-;; ========         |.-""""""""""""""""""-.|   |-----|          ========
-;; ========         ||                    ||   | === |          ========
-;; ========         ||     EMACS-KICK     ||   |-----|          ========
-;; ========         ||                    ||   | === |          ========
-;; ========         ||                    ||   |-----|          ========
-;; ========         ||M-x                 ||   |:::::|          ========
-;; ========         |'-..................-'|   |____o|          ========
-;; ========         `"")----------------(""`   ___________      ========
-;; ========        /::::::::::|  |::::::::::\  \ no mouse \     ========
-;; ========       /:::========|  |==hjkl==:::\  \ required \    ========
-;; ========      '""""""""""""'  '""""""""""""'  '""""""""""'   ========
-;; ========                                                     ========
+;;
+;;                      ⣠⣶⣿⣿⣶⡄         ⠀⣀⣤⣄⡀
+;;                      ⣿⣿⣿⣿λ⣿         ⣾)⣿⣿⣿⡆
+;;                      ⠹⢿⣿⣿⡿⠃        ⠀⣿⣿⣿⣿⣿⡏⢀⣀⡀
+;;                      ⣠⣤⣦⡄           ⠈⠛⠿⣟⣋⣼⣽⣾⣽⣦⡀⠀
+;;                      ⣼⣿⣷⣾⡽⡄       ⣴⣶⣶⣿⣿⣿⡿⢿⣟⣽⣾⣿⣿⣦
+;;                     ⣸⣿⣿⣾⣿⣿⣮⣤⣤⣤⣤⡀  ⠻⣿⡯⠽⠿⠛⠛⠉⠉⢿⣿⣿⣿⣿⣷
+;;                     ⣿⣿⢻⣿⣿⣿⣛⡿⠿⠟⠛⠁⣀⣠⣤⣤⣶⣶⣶⣶⣷⣶ ⠀⠻⣿⣿⣿⣿⣇
+;;                     ⢻⣿⡆⢿⣿⣿⣿⣿⣤⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠟ ⣠⣶⣿⣿⣿⣿
+;;                     ⠈⠛⠃⠈⢿⣿⣿⣿⣿⣿⣿⠿⠟⠛⠋⠉     ⣠⣾⣿⣿⣿⠟⠋
+;;                          ⠙⢿⣿⣿⡏         ⠀⣴⣿⣿⣿⠟
+;;                           ⢸E⣿⡇         ⣼⣿⣿⣿
+;;                           ⢸M⣿⣿        ⢸⣿⣿⣿
+;;                           ⢸A⣿⣿        ⠸⣿⣿
+;;                           ⢸C⣿⣿
+;;                           ⣼S⣿⡇
+;;                          ⠀⠻⣿⡿
 ;; =====================================================================
 ;; =====================================================================
 
@@ -46,6 +49,7 @@
 ;; After understanding a bit more about Emacs Lisp, you can use `M-x
 ;; info RET` (info) for a reference on how Emacs integrates it.
 ;;
+;;
 ;; Emacs-Kick Guide:
 ;;
 ;; Well, this config ASSUMES you already knows (neo)vi(m) bindings,
@@ -53,8 +57,8 @@
 ;; vimmers'.  So, if you're not familiar with it, go for
 ;; `kickstart.nvim', get used to it, and than come back.
 ;;
-;; On Emacs help can be found multiple ways.
-;; With this config, the leader key as SPC.
+;; On Emacs, help can be found multiple ways.
+;; With this config, the leader key is SPC.
 ;; - <leader> h i opens the info (Also `M-x info RET')
 ;; - <leader> h v explores available variables
 ;; - <leader> h f explores avaliable functions
