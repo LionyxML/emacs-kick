@@ -989,7 +989,24 @@
   (evil-collection-want-find-usages-bindings t)
   ;; Hook to initialize `evil-collection' when `evil-mode' is activated.
   :hook
-- (evil-mode . evil-collection-init))
+  (evil-mode . evil-collection-init))
+
+
+;; EVIL SURROUND
+;; The `evil-surround' package provides text object surround
+;; functionality for `evil-mode'. This allows for easily adding,
+;; changing, or deleting surrounding characters such as parentheses,
+;; quotes, and more.
+;;
+;; With this you can change 'hello there' with ci'" to have
+;; "hello there" and cs"<p> to get <p>hello there</p>.
+;; More examples here:
+;; - https://github.com/emacs-evil/evil-surround?tab=readme-ov-file#examples
+(use-package evil-surround
+  :ensure t
+  :after evil-collection
+  :config
+  (global-evil-surround-mode 1))
 
 
 ;; UNDO TREE
