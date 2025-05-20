@@ -927,6 +927,7 @@
 
   ;; NeoTree command for file exploration
   (evil-define-key 'normal 'global (kbd "<leader> e e") 'neotree-toggle)
+  (evil-define-key 'normal 'global (kbd "<leader> e d") 'dired-jump)
 
   ;; Magit keybindings for Git integration
   (evil-define-key 'normal 'global (kbd "<leader> g g") 'magit-status)      ;; Open Magit status
