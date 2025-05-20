@@ -1,3 +1,23 @@
+<div align="center">
+  <img src="doc/emacs-kick-logo.png" alt="Project Logo" width="300"/>
+  <br/>
+  <img src="https://img.shields.io/badge/Emacs-30%2B-green.svg" alt="Emacs 30+"/>
+  <img src="https://img.shields.io/badge/License-GPLv2-green" alt="GPLv2 License"/>
+</div>
+
+<div align="center">
+  A feature rich Emacs (kickstarter) config for (neo)vi(m)mers
+</div>
+
+<div align="center">
+  <a href="#minimum-requirements"><strong>Requirements</strong></a> ·
+  <a href="#installation-instructions"><strong>Installation</strong></a> ·
+  <a href="#available-commands"><strong>Available Commands</strong></a> ·
+  <a href="#contributing"><strong>Contributing</strong></a>
+</div>
+
+---
+
 # Emacs-Kick(starter) for Vim/Neovim Users
 
 Welcome to `Emacs-Kick`, a feature-rich Emacs configuration designed
@@ -26,7 +46,7 @@ enjoying it, you can:
 - Customize and expand your configuration as much as you want
 - Experiment with frameworks like Doom Emacs or Spacemacs
 - Tinker with vanilla Emacs to build a setup entirely your own
-OR...
+  OR...
 - Just keep using it on TUI, it is all up to you!
 
 With Emacs-Kick, the goal is to empower you to explore Emacs at your
@@ -128,7 +148,7 @@ emacs
 **Usage Tips**:
 
 - **Leader Key**: The leader key is set to `SPC` (spacebar),
-`which-key` is there to help you discover keybindings.
+  `which-key` is there to help you discover keybindings.
 - **Help Commands**:
 - `SPC h i` opens the Emacs info documentation (`M-x info`).
 - `SPC h v` allows you to explore available variables.
@@ -138,8 +158,8 @@ emacs
 **Troubleshooting**:
 
 - If you encounter any issues during installation, check the
-`*Messages*` buffer for more information. You can switch between
-buffers with `SPC SPC`, and navigate options using `C-p` and `C-n`.
+  `*Messages*` buffer for more information. You can switch between
+  buffers with `SPC SPC`, and navigate options using `C-p` and `C-n`.
 
 ## Available Commands
 
