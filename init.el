@@ -801,14 +801,14 @@
                  (diff-hl-margin-mode)))         ;; Show diff indicators in the margin.
   :custom
   (diff-hl-side 'left)                           ;; Set the side for diff indicators.
-  (diff-hl-margin-symbols-alist '((insert . "│") ;; Customize symbols for each change type.
+  (diff-hl-margin-symbols-alist '((insert . "┃") ;; Customize symbols for each change type.
                                   (delete . "-")
-                                  (change . "│")
-                                  (unknown . "?")
+                                  (change . "┃")
+                                  (unknown . "┆")
                                   (ignored . "i"))))
 
 
-;;; Magit
+;;; MAGIT
 ;; `magit' is a powerful Git interface for Emacs that provides a complete
 ;; set of features to manage Git repositories. With its intuitive interface,
 ;; you can easily stage, commit, branch, merge, and perform other Git
