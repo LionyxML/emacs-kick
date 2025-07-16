@@ -651,35 +651,41 @@
   :init (setq markdown-command "multimarkdown")) ;; Set the Markdown processing command.
 
 
-;;; COMPANY
-;; Company Mode provides a text completion framework for Emacs.
+;;; CORFU
+;; Corfu Mode provides a text completion framework for Emacs.
 ;; It enhances the editing experience by offering context-aware
-;; suggestions as you type. With support for multiple backends,
-;; Company Mode is highly customizable and can be integrated with
+;; suggestions as you type.
+;; Corfu Mode is highly customizable and can be integrated with
 ;; various modes and languages.
-(use-package company
-  :defer t
-  :straight t
+(use-package corfu
   :ensure t
+  :straight t
+  :defer t
   :custom
-  (company-tooltip-align-annotations t)      ;; Align annotations with completions.
-  (company-minimum-prefix-length 1)          ;; Trigger completion after typing 1 character
-  (company-idle-delay 0.2)                   ;; Delay before showing completion (adjust as needed)
-  (company-tooltip-maximum-width 50)
+  (corfu-auto nil)                        ;; Only completes when hitting TAB
+  ;; (corfu-auto-delay 0)                ;; Delay before popup (enable if corfu-auto is t)
+  (corfu-auto-prefix 1)                  ;; Trigger completion after typing 1 character
+  (corfu-quit-no-match t)                ;; Quit popup if no match
+  (corfu-scroll-margin 5)                ;; Margin when scrolling completions
+  (corfu-max-width 50)                   ;; Maximum width of completion popup
+  (corfu-min-width 50)                   ;; Minimum width of completion popup
+  (corfu-popupinfo-delay 0.5)            ;; Delay before showing documentation popup
   :config
+  (if ek-use-nerd-fonts
+    (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+  :init
+  (global-corfu-mode)
+  (corfu-popupinfo-mode t))
 
-  ;; While using C-p C-n to select a completion candidate
-  ;; C-y quickly shows help docs for the current candidate
-  (define-key company-active-map (kbd "C-y")
-              (lambda ()
-                (interactive)
-                (company-show-doc-buffer)))
-  (define-key company-active-map [tab] 'company-complete-selection)
-  (define-key company-active-map (kbd "TAB") 'company-complete-selection)
-  (define-key company-active-map [ret] 'company-complete-selection)
-  (define-key company-active-map (kbd "RET") 'company-complete-selection)
-  :hook
-  (after-init . global-company-mode)) ;; Enable Company Mode globally after initialization.
+
+;;; NERD-ICONS-CORFU
+;; Provides Nerd Icons to be used with CORFU.
+(use-package nerd-icons-corfu
+  :if ek-use-nerd-fonts
+  :ensure t
+  :straight t
+  :defer t
+  :after (:all corfu))
 
 
 ;;; LSP
