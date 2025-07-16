@@ -61,6 +61,9 @@ own pace. The sky's the limit! 🌟
 emacs --version
 ```
 
+**Note**: floating windows on TUI are only supported from Emacs >=31 (current
+development version on Emacs master branch).
+
 ## Installation Instructions
 
 1. **Clone the repository**:
