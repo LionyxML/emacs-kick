@@ -701,20 +701,26 @@
   :straight t
   :defer t
   :hook (;; Replace XXX-mode with concrete major mode (e.g. python-mode)
-         (bash-ts-mode . lsp)                           ;; Enable LSP for Bash
-         (typescript-ts-mode . lsp)                     ;; Enable LSP for TypeScript
-         (tsx-ts-mode . lsp)                            ;; Enable LSP for TSX
-         (js-mode . lsp)                                ;; Enable LSP for JavaScript
-         (js-ts-mode . lsp)                             ;; Enable LSP for JavaScript (TS mode)
-         (lsp-mode . lsp-enable-which-key-integration)) ;; Integrate with Which Key
+         (lsp-mode . lsp-enable-which-key-integration)  ;; Integrate with Which Key
+         ((js-mode                                      ;; Enable LSP for JavaScript
+           tsx-ts-mode                                  ;; Enable LSP for TSX
+           typescript-ts-base-mode                      ;; Enable LSP for TypeScript
+           css-mode                                     ;; Enable LSP for CSS
+           go-ts-mode                                   ;; Enable LSP for Go
+           js-ts-mode                                   ;; Enable LSP for JavaScript (TS mode)
+           prisma-mode                                  ;; Enable LSP for Prisma
+           python-base-mode                             ;; Enable LSP for Python
+           ruby-base-mode                               ;; Enable LSP for Ruby
+           rust-ts-mode                                 ;; Enable LSP for Rust
+           web-mode) . lsp-deferred))                   ;; Enable LSP for Web (HTML)
   :commands lsp
   :custom
   (lsp-keymap-prefix "C-c l")                           ;; Set the prefix for LSP commands.
-  (lsp-inlay-hint-enable t)                             ;; Enable inlay hints.
+  (lsp-inlay-hint-enable nil)                           ;; Usage of inlay hints.
   (lsp-completion-provider :none)                       ;; Disable the default completion provider.
   (lsp-session-file (locate-user-emacs-file ".lsp-session")) ;; Specify session file location.
   (lsp-log-io nil)                                      ;; Disable IO logging for speed.
-  (lsp-idle-delay 0)                                    ;; Set the delay for LSP to 0 (debouncing).
+  (lsp-idle-delay 0.5)                                  ;; Set the delay for LSP to 0 (debouncing).
   (lsp-keep-workspace-alive nil)                        ;; Disable keeping the workspace alive.
   ;; Core settings
   (lsp-enable-xref t)                                   ;; Enable cross-references.
@@ -728,13 +734,13 @@
   (lsp-enable-on-type-formatting nil)                   ;; Disable on-type formatting.
   (lsp-enable-suggest-server-download t)                ;; Enable server download suggestion.
   (lsp-enable-symbol-highlighting t)                    ;; Enable symbol highlighting.
-  (lsp-enable-text-document-color nil)                  ;; Disable text document color.
+  (lsp-enable-text-document-color t)                    ;; Enable text document color.
   ;; Modeline settings
   (lsp-modeline-code-actions-enable nil)                ;; Keep modeline clean.
   (lsp-modeline-diagnostics-enable nil)                 ;; Use `flymake' instead.
   (lsp-modeline-workspace-status-enable t)              ;; Display "LSP" in the modeline when enabled.
   (lsp-signature-doc-lines 1)                           ;; Limit echo area to one line.
-  (lsp-eldoc-render-all nil)                              ;; Render all ElDoc messages.
+  (lsp-eldoc-render-all t)                              ;; Render all ElDoc messages.
   ;; Completion settings
   (lsp-completion-enable t)                             ;; Enable completion.
   (lsp-completion-enable-additional-text-edit t)        ;; Enable additional text edits for completions.
