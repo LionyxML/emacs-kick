@@ -461,7 +461,12 @@
 ;; This package is built-in, so there's no need to fetch it separately.
 ;; The following line enables Eldoc globally for all buffers.
 (use-package eldoc
-  :ensure nil          ;; This is built-in, no need to fetch it.
+  :ensure nil                                ;; This is built-in, no need to fetch it.
+  :config
+  (setq eldoc-idle-delay 0)                  ;; Automatically fetch doc help
+  (setq eldoc-echo-area-use-multiline-p nil) ;; We use the "K" floating help instead
+                                             ;; set to t if you want docs on the echo area
+  (setq eldoc-echo-area-display-truncation-message nil)
   :init
   (global-eldoc-mode))
 
