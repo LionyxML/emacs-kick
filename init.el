@@ -767,7 +767,18 @@
   (setq lsp-tailwindcss-add-on-mode t))
 
 
-;;; Diff-HL
+;;; ELDOC-BOX
+;; eldoc-box enhances the default Eldoc experience by displaying documentation in a popup box,
+;; usually in a child frame. This makes it easier to read longer docstrings without relying on
+;; the minibuffer. It integrates seamlessly with Eldoc and activates when Eldoc is active.
+;; Useful for graphical Emacs; terminal users may want to fall back to `eldoc-box-display-at-point-mode'.
+(use-package eldoc-box
+  :ensure t
+  :straight t
+  :defer t)
+
+
+;;; DIFF-HL
 ;; The `diff-hl' package provides visual indicators for version control changes
 ;; directly in the margin of the buffer, showing lines added, deleted, or changed.
 ;; This is useful for tracking modifications while you edit files. When enabled,
