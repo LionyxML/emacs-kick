@@ -1017,13 +1017,14 @@
     (let ((help-buffer "*lsp-help*"))
       (when (get-buffer help-buffer)
         (switch-to-buffer-other-window help-buffer))))
-  ;; Open hover documentation
-  (evil-define-key 'normal 'global (kbd "K") 'ek/lsp-describe-and-jump)
-  ;; Yeah, on terminals, Emacs doesn't support (YET), the use of floating windows,
-  ;; thus, this will open a small buffer bellow your window.
-  ;; This floating frames are called "child frames" and some recent effort is being put
-  ;; into having a translation of those marvelous GUI stuff to terminal. Let's hope
-  ;; we add this to Emacs Kick soom :)
+
+  ;; Emacs 31 finaly brings us support for 'floating windows' (a.k.a. "child frames")
+  ;; to terminal Emacs. If you're still using 30, docs will be shown in a buffer at the
+  ;; inferior part of your frame.
+  (evil-define-key 'normal 'global (kbd "K")
+    (if (>= emacs-major-version 31)
+        #'eldoc-box-help-at-point
+        #'ek/lsp-describe-and-jump))
 
   ;; Commenting functionality for single and multiple lines
   (evil-define-key 'normal 'global (kbd "gcc")
