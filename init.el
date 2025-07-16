@@ -826,6 +826,9 @@
 (use-package magit
   :ensure t
   :straight t
+  :config
+  (if ek-use-nerd-fonts   ;; Check if nerd fonts are being used
+	  (setopt magit-format-file-function #'magit-format-file-nerd-icons)) ;; Turns on magit nerd-icons
   :defer t)
 
 
