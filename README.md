@@ -169,6 +169,7 @@ emacs
 | Keybinding     | Action                                    |
 | -------------- | ----------------------------------------- |
 | `SPC`          | Leader key                                |
+| `TAB`          | Call completion                           |
 | `C-d`          | Scroll down                               |
 | `C-u`          | Scroll up                                 |
 | `<leader> s f` | Find file                                 |
