@@ -52,6 +52,7 @@ enjoying it, you can:
 With Emacs-Kick, the goal is to empower you to explore Emacs at your
 own pace. The sky's the limit! 🌟
 
+
 ## Minimum Requirements
 
 - Emacs version **>=30.1**
@@ -63,6 +64,33 @@ emacs --version
 
 **Note**: floating windows on TUI are only supported from Emacs >=31 (current
 development version on Emacs master branch).
+
+
+### macOS Warning
+
+On macOS, `emacs-kick` may fail to function correctly due to missing or
+incompatible system utilities. To avoid common issues, make sure the
+following tools are installed via Homebrew:
+
+```bash
+brew install coreutils git
+```
+
+This provides:
+
+- `gls`: The GNU version of `ls`, required by Dired to avoid errors
+  like:
+
+  ```
+  Listing directory failed but 'access-file' worked.
+  ```
+
+- `git`: macOS system usually has an older version of Git, this
+  typically refers to the version installed through Apple's Command
+  Line Tools (part of Xcode). Installing from Homebrew ensures a
+  modern version of git is installed and will avoid problems with
+  `magit`.
+
 
 ## Installation Instructions
 
