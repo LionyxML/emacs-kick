@@ -29,7 +29,7 @@ give Emacs a try.
 Use Emacs the same way you'd use `Neovim`, seamlessly integrating it
 into your workflow inside terminal multiplexers like `tmux` or
 `Zellij`, while also enjoying modern features such as `treesitter`
-and `LSP`—no hassle.
+and `LSP`, no hassle.
 
 ![Demo](doc/demo01.png)
 
@@ -49,9 +49,8 @@ enjoying it, you can:
   OR...
 - Just keep using it on TUI, it is all up to you!
 
-With Emacs-Kick, the goal is to empower you to explore Emacs at your
+With `Emacs-Kick`, the goal is to empower you to explore Emacs at your
 own pace. The sky's the limit! 🌟
-
 
 ## Minimum Requirements
 
@@ -68,7 +67,7 @@ development version on Emacs master branch).
 
 ### macOS Warning
 
-On macOS, `emacs-kick` may fail to function correctly due to missing or
+On macOS, `Emacs-Kick` may fail to function correctly due to missing or
 incompatible system utilities. To avoid common issues, make sure the
 following tools are installed via Homebrew:
 
@@ -137,12 +136,13 @@ configuration.
 **NOTE**: During the initial setup, you'll be prompted to install Tree-sitter
 grammars and download some fonts. This configuration uses **Nerd Fonts** by
 default, so installing them now is highly recommended for the best experience.
-On first launch, Emacs will also **native compile some external packages**,
-which may take a little time. Additionally, the first time you perform certain
-actions—like opening the tree explorer, Emacs may compile related components in
-the background. This is completely normal and only happens once per feature.
-You might notice a brief moment of sluggish performance during this initial
-compilation.
+
+**VERY IMPORTANT**: On first launch, Emacs will also **native compile some
+external packages**, which may take a little time. Additionally, the first time
+you perform certain actions, like opening the tree explorer, Emacs may compile
+related components in the background. This is completely normal and only
+happens once per feature. You might notice a brief moment of sluggish
+performance during this initial compilation.
 
 3. **Set terminal mode by default**:
 
