@@ -286,7 +286,7 @@
 ;;    Packages     : %s
 "
                          (emacs-init-time)
-                         (number-to-string (length package-activated-list))))))))
+                         (length (hash-table-keys straight--recipe-cache))))))))
 
 
 ;;; WINDOW
