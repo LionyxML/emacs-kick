@@ -1,7 +1,7 @@
 ;;; init.el --- Emacs-Kick --- A feature rich Emacs config for (neo)vi(m)mers -*- lexical-binding: t; -*-
 ;; Author: Rahul Martim Juliato
 
-;; Version: 0.3.0
+;; Version: 0.3.3
 ;; Package-Requires: ((emacs "30.1"))
 ;; License: GPL-2.0-or-later
 
@@ -196,14 +196,15 @@
 (use-package emacs
   :ensure nil
   :custom                                         ;; Set custom variables to configure Emacs behavior.
-  (column-number-mode t)                          ;; Display the column number in the mode line.
   (auto-save-default nil)                         ;; Disable automatic saving of buffers.
+  (column-number-mode t)                          ;; Display the column number in the mode line.
   (create-lockfiles nil)                          ;; Prevent the creation of lock files when editing.
   (delete-by-moving-to-trash t)                   ;; Move deleted files to the trash instead of permanently deleting them.
   (delete-selection-mode 1)                       ;; Enable replacing selected text with typed text.
   (display-line-numbers-type 'relative)           ;; Use relative line numbering in programming modes.
   (global-auto-revert-non-file-buffers t)         ;; Automatically refresh non-file buffers.
   (history-length 25)                             ;; Set the length of the command history.
+  (indent-tabs-mode nil)                          ;; Disable the use of tabs for indentation (use spaces instead).
   (inhibit-startup-message t)                     ;; Disable the startup message when Emacs launches.
   (initial-scratch-message "")                    ;; Clear the initial message in the *scratch* buffer.
   (ispell-dictionary "en_US")                     ;; Set the default dictionary for spell checking.
@@ -261,7 +262,6 @@
 
   (global-hl-line-mode -1)     ;; Disable highlight of the current line
   (global-auto-revert-mode 1)  ;; Enable global auto-revert mode to keep buffers up to date with their corresponding files.
-  (indent-tabs-mode -1)        ;; Disable the use of tabs for indentation (use spaces instead).
   (recentf-mode 1)             ;; Enable tracking of recently opened files.
   (savehist-mode 1)            ;; Enable saving of command history.
   (save-place-mode 1)          ;; Enable saving the place in files for easier return.
