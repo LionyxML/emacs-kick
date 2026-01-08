@@ -850,13 +850,37 @@
 ;; applications using the clipboard. When `xclip' is enabled, any text copied
 ;; in Emacs can be pasted in other applications, and vice versa, providing a
 ;; smooth workflow when working across multiple environments.
+;;
+;; This configuration ensures that `xclip' is installed and loaded only on
+;; non-Windows systems, as Windows requires a different approach for clipboard
+;; integration.
 (use-package xclip
   :ensure t
   :straight t
   :defer t
+  :if (not (eq system-type 'windows-nt))
   :hook
   (after-init . xclip-mode))     ;; Enable xclip mode after initialization.
 
+;;; CLIP (Windows)
+;; On Windows systems, Emacs does not require an external package like `xclip'
+;; for clipboard integration. Instead, this configuration customizes the
+;; built-in interprogram-cut-function and interprogram-paste-function to
+;; interface with the Windows clipboard using native tools: `clip.exe' for
+;; copying and PowerShell's `Get-Clipboard' for pasting.
+(when (eq system-type 'windows-nt)
+  (setq interprogram-cut-function
+        (lambda (text &optional _)
+          (let* ((process-connection-type nil)
+                 (proc (start-process "clip" "*Messages*" "clip.exe")))
+            (process-send-string proc text)
+            (process-send-eof proc))))
+  
+   (setq interprogram-paste-function
+        (lambda ()
+          (string-trim
+           (shell-command-to-string
+            "powershell.exe -command Get-Clipboard")))))
 
 ;;; INDENT-GUIDE
 ;; The `indent-guide' package provides visual indicators for indentation levels
