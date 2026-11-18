@@ -62,8 +62,8 @@
 ;; With this config, the leader key is SPC.
 ;; - <leader> h i opens the info (Also `M-x info RET')
 ;; - <leader> h v explores available variables
-;; - <leader> h f explores avaliable functions
-;; - <leader> h k explores avaliable keybindings
+;; - <leader> h f explores available functions
+;; - <leader> h k describes what a key does
 ;;
 ;; If, at any time you need to find some functionality, Emacs `M-x'
 ;; (Meta is alt on most cases, option or command), works like a
@@ -1012,6 +1012,7 @@
   (evil-define-key 'normal 'global (kbd "<leader> u") 'undo-tree-visualize)
 
   ;; Help keybindings
+  (evil-define-key 'normal 'global (kbd "<leader> h i") 'info) ;; Open Info manuals
   (evil-define-key 'normal 'global (kbd "<leader> h m") 'describe-mode) ;; Describe current mode
   (evil-define-key 'normal 'global (kbd "<leader> h f") 'describe-function) ;; Describe function
   (evil-define-key 'normal 'global (kbd "<leader> h v") 'describe-variable) ;; Describe variable
@@ -1047,7 +1048,7 @@
       (when (get-buffer help-buffer)
         (switch-to-buffer-other-window help-buffer))))
 
-  ;; Emacs 31 finaly brings us support for 'floating windows' (a.k.a. "child frames")
+  ;; Emacs 31 finally brings us support for 'floating windows' (a.k.a. "child frames")
   ;; to terminal Emacs. If you're still using 30, docs will be shown in a buffer at the
   ;; inferior part of your frame.
   (evil-define-key 'normal 'global (kbd "K")
