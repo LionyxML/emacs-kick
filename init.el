@@ -937,6 +937,7 @@
   (setq evil-want-keybinding nil)     ;; Disable default keybinding to set custom ones.
   (setq evil-want-C-u-scroll t)       ;; Makes C-u scroll
   (setq evil-want-C-u-delete t)       ;; Makes C-u delete on insert mode
+  (setq evil-want-Y-yank-to-eol t)     ;; Makes Y yank from point to end of line
   :config
   (evil-set-undo-system 'undo-tree)   ;; Uses the undo-tree package as the default undo system
 
