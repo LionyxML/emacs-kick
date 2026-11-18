@@ -61,8 +61,7 @@ own pace. The sky's the limit! 🌟
 emacs --version
 ```
 
-**Note**: floating windows on TUI are only supported from Emacs >=31 (current
-development version on Emacs master branch).
+**Note**: floating windows on TUI are only supported from Emacs >=31.
 
 
 ### macOS Warning
@@ -184,7 +183,7 @@ emacs
 - `SPC h i` opens the Emacs info documentation (`M-x info`).
 - `SPC h v` allows you to explore available variables.
 - `SPC h f` lets you explore functions.
-- `SPC h k` displays keybindings.
+- `SPC h k` describes what a key does.
 
 **Troubleshooting**:
 
@@ -215,6 +214,7 @@ emacs
 | `] c`          | Next diff hunk                            |
 | `[ c`          | Previous diff hunk                        |
 | `<leader> e e` | Toggle NeoTree                            |
+| `<leader> e d` | Dired jump                                |
 | `<leader> g g` | Open Magit status                         |
 | `<leader> g l` | Show current log                          |
 | `<leader> g d` | Show diff for current file                |
@@ -240,6 +240,7 @@ emacs
 | `<leader> P`   | Yank from kill ring                       |
 | `<leader> .`   | Embark act                                |
 | `<leader> u`   | Undo tree visualize                       |
+| `<leader> h i` | Open Info manuals                         |
 | `<leader> h m` | Describe current mode                     |
 | `<leader> h f` | Describe function                         |
 | `<leader> h v` | Describe variable                         |
