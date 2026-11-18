@@ -1184,20 +1184,27 @@
   (after-init . pulsar-global-mode)
   :config
   (setq pulsar-pulse t)
-  (setq pulsar-delay 0.025)
+  (setq pulsar-delay 0.0125)
   (setq pulsar-iterations 10)
-  (setq pulsar-face 'evil-ex-lazy-highlight)
+  (setq pulsar-tty-color (face-background 'pulsar-generic nil t)) ;; TTY ignores faces, reuse the theme color
 
   (add-to-list 'pulsar-pulse-functions 'evil-scroll-down)
   (add-to-list 'pulsar-pulse-functions 'flymake-goto-next-error)
   (add-to-list 'pulsar-pulse-functions 'flymake-goto-prev-error)
-  (add-to-list 'pulsar-pulse-functions 'evil-yank)
-  (add-to-list 'pulsar-pulse-functions 'evil-yank-line)
   (add-to-list 'pulsar-pulse-functions 'evil-delete)
   (add-to-list 'pulsar-pulse-functions 'evil-delete-line)
   (add-to-list 'pulsar-pulse-functions 'evil-jump-item)
   (add-to-list 'pulsar-pulse-functions 'diff-hl-next-hunk)
-  (add-to-list 'pulsar-pulse-functions 'diff-hl-previous-hunk))
+  (add-to-list 'pulsar-pulse-functions 'diff-hl-previous-hunk)
+
+  ;; Yanks change nothing, so pulsar can only guess the line. Pulse the
+  ;; exact range evil yanked instead.
+  (setq pulsar-pulse-region-functions
+        (seq-difference pulsar-pulse-region-functions '(evil-yank evil-yank-line)))
+  (advice-add 'evil-yank :after
+              (lambda (beg end &rest _)
+                (when (and pulsar-mode (memq this-command '(evil-yank evil-yank-line)))
+                  (pulsar-highlight-pulse (cons beg end))))))
 
 
 ;;; DOOM MODELINE
@@ -1298,6 +1305,10 @@
   (custom-set-faces
    ;; Set the color for insertions in the diff highlighting to green.
    `(diff-hl-insert ((t (:background unspecified :foreground ,(catppuccin-get-color 'green))))))
+
+  (custom-set-faces
+   ;; Pulse with Catppuccin rosewater instead of the default red.
+   `(pulsar-generic ((t (:background ,(catppuccin-get-color 'rosewater) :extend t)))))
 
   ;; Load the Catppuccin theme without prompting for confirmation.
   (load-theme 'catppuccin :no-confirm))
